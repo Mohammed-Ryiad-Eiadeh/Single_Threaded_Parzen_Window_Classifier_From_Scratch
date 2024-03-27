@@ -1,0 +1,3 @@
+# Parzen Window Algorithm:
+
+This is a non-parametric lazy algorithm; hence, it does not include a training phase where a model learns. Yet, it directly estimates the likelihood or the probability distribution of the datapoints via the training samples. Therefore, it does not have an error rate curve like some other classifiers such as logistics regression where the curve in such approach is deduced from the training data during the training phase. Yet it has an advantage of being lazy algorithm such that it can be efficient when the data is large since it provides the decision boundary according to any data distribution, however, as long as the data becomes larger its’ cost increases.
