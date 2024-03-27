@@ -6,26 +6,20 @@ Now let's delve into how it works mathematically: Suppose we have 2 classes `Cla
 
 Calculate the density estimation that this test case refers to each class. And this can be mathematically given by:
 
-```
 $Density(X|Class_i) = \frac{1}{N} \left( \sum_{j=1}^{N} K\left( \sum_{f=1}^{d} \sqrt{(p_f - q_f)^2}/h \right) \right)$
-```
 
 where `N` is the total number of training samples belonging to `Class_i`, `d` is the number of features of the feature vector.
 
 `K` is the Gaussian kernel which is captured by:
 
-```
-K(u) = 1/√(2π) e^(-u^2/2)
-```
+$K(u) = 1/√(2π) e^(-u^2/2)$
 
-where `u = Σ_f^d √((p_f-q_f)^2)/h`
+where $u = Σ_f^d √((p_f-q_f)^2)/h$
 
 After calculating the likelihood, we use Bayesian decision theory to make the classification properly such that:
 
-```
 Class_i = {Class_1, if P(X|Class_1) P(Class_1) > P(X|Class_2) P(Class_2),
            Class_2, Otherwise}
-```
 
 And if we have more than two classes, we take the class that provides the maximum value of `P(X|Class_1) P(Class_1)`. That's it.
 
