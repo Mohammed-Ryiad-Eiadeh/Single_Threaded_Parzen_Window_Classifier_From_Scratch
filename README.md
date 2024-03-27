@@ -12,7 +12,7 @@ where `N` is the total number of training samples belonging to `Class_i`, `d` is
 
 `K` is the Gaussian kernel which is captured by:
 
-$K(u) = 1/√(2π) e^_(-u^2/2)$
+$K(u) = 1/√(2π) e^{(-u^2/2)}$
 
 where $u = Σ_f^d √((p_f-q_f)^2)/h$
 
