@@ -14,7 +14,7 @@ where `N` is the total number of training samples belonging to `Class_i`, `d` is
 
 $K(u) = 1/√(2π) e^{(-u^2/2)}$
 
-where $u = Σ_f^d √((p_f-q_f)^2)/h$
+where $u = Σ_f^d √{(p_f-q_f)^2}/h$
 
 After calculating the likelihood, we use Bayesian decision theory to make the classification properly such that:
 
