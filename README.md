@@ -24,3 +24,7 @@ Class_i = {Class_1, if P(X|Class_1) P(Class_1) > P(X|Class_2) P(Class_2),
 ```
 And if we have more than two classes, we take the class that provides the maximum value of `P(X|Class_1) P(Class_1)`. That's it.
 
+# Important Note:
+
+Convert the labels to integers before executing the code
+
