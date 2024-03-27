@@ -7,7 +7,7 @@ Now let's delve into how it works mathematically: Suppose we have 2 classes `Cla
 Calculate the density estimation that this test case refers to each class. And this can be mathematically given by:
 
 ```
-Density(X|Class_i) = 1/N (Σ_(j=1)^N K(Σ_f^d √((p_f-q_f)^2)/h))
+Density(X|Class_i) = \frac{1}{N} \left( \sum_{j=1}^{N} K\left( \sum_{f=1}^{d} \sqrt{(p_f - q_f)^2}/h \right) \right)
 ```
 
 where `N` is the total number of training samples belonging to `Class_i`, `d` is the number of features of the feature vector.
