@@ -7,7 +7,7 @@ import tech.tablesaw.plotly.api.ScatterPlot;
 public class PlotDataPointsMain {
     public static void main(String[] args) {
         // the path of the generated data
-        String dataURL = "C:\\Users\\20187\\Desktop\\data.csv";
+        String dataURL = "...\\data.csv";
 
         // read the data by object of Table
         var dataTable = Table.read().csv(dataURL);
