@@ -10,7 +10,7 @@ import ParzenWindowClassifier.org.ParzenWindowClassifier;
 public class ParzenWindowMain {
     public static void main(String[] args) {
         // Read the .csv file of the data
-        DataSource dataSource = new DataSource("C:\\Users\\20187\\Desktop\\data.csv", "class");
+        DataSource dataSource = new DataSource("...\\data.csv", "class");
         var dataset = dataSource.readData();
 
         // Split the data into two parts, training and testing
