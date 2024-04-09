@@ -39,7 +39,6 @@ public class ParzenWindowClassifier {
     public void train(ArrayList<DataSource.sample_Label> train) {
         // Fetch the unique class IDs present in the training data
         var classesId = train.stream().map(DataSource.sample_Label::label).distinct().toList();
-
         // Compute the number of samples per class and their priors
         for (String currentClass : classesId) {
             // Filter and collect samples corresponding to the current class
@@ -48,7 +47,6 @@ public class ParzenWindowClassifier {
                     .map(DataSource.sample_Label::sample)
                     .toList()
                     .toArray(double[][]::new);
-
             // Store samples and their priors in the corresponding maps
             mapClassToSamples.put(currentClass, samplesPerClass);
             mapClassToPriors.put(currentClass, (float) samplesPerClass.length / train.size());
@@ -65,7 +63,6 @@ public class ParzenWindowClassifier {
         for (DataSource.sample_Label sample_label : test) {
             // Compute likelihoods for the current test sample
             HashMap<String, Double> sampleLikelihoods = getLikelihood(sample_label.sample(), mapClassToSamples);
-
             // Compute posterior probabilities based on likelihoods and priors
             HashMap<String, Double> mapClassToPosterior = new HashMap<>();
             for (String currentClass : sampleLikelihoods.keySet()) {
@@ -73,11 +70,9 @@ public class ParzenWindowClassifier {
                 double posterior = currentClassLikelihood * mapClassToPriors.get(currentClass);
                 mapClassToPosterior.put(currentClass, posterior);
             }
-
             // Sort posterior probabilities in descending order
             ArrayList<Map.Entry<String, Double>> sortPosteriors = new ArrayList<>(mapClassToPosterior.entrySet());
             sortPosteriors.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
-
             // Check if the predicted class matches the true label
             int computedClass = Integer.parseInt(sortPosteriors.get(0).getKey());
             int groundTruth = Integer.parseInt(sample_label.label());
@@ -104,11 +99,9 @@ public class ParzenWindowClassifier {
      */
     private HashMap<String, Double> getLikelihood(double[] sample, HashMap<String, double[][]> mapClassToSamples) {
         HashMap<String, Double> mapLikelihoodPerEachClass = new HashMap<>();
-
         // Iterate over classes
         for (String classId : mapClassToSamples.keySet()) {
             double sum = 0.0; // Initialize sum for likelihood
-
             // Iterate over samples in the current class
             for (double[] samples : mapClassToSamples.get(classId)) {
                 // Compute distance (scaled by bandwidth) between test sample and training sample
@@ -117,7 +110,6 @@ public class ParzenWindowClassifier {
                     sum += gaussianKernelFunction(distanceSquared); // Compute kernel function
                 }
             }
-
             // Compute average likelihood for the current class
             int numOfSamplesInTheCurrentClass = mapClassToSamples.get(classId).length;
             sum *= (float) 1 / numOfSamplesInTheCurrentClass;
