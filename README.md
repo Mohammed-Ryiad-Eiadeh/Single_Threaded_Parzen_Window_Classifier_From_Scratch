@@ -18,9 +18,10 @@ where $u = Σ_f^d √{(p_f-q_f)^2}/h$
 
 After calculating the likelihood, we use Bayesian decision theory to make the classification properly such that:
 
-
-Class_i = ```{Class_1, if P(X|Class_1) P(Class_1) > P(X|Class_2) P(Class_2),
-           Class_2, Otherwise}```
+```
+Class_i = {Class_1, if P(X|Class_1) P(Class_1) > P(X|Class_2) P(Class_2),
+           Class_2, Otherwise}
+```
 
 And if we have more than two classes, we take the class that provides the maximum value of `P(X|Class_1) P(Class_1)`. That's it. How easy it can be 😃😃
 
