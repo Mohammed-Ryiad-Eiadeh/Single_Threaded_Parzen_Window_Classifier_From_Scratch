@@ -19,7 +19,7 @@ where $u = Σ_f^d √{(p_f-q_f)^2}/h$
 After calculating the likelihood, we use Bayesian decision theory to make the classification properly such that:
 
 ```
-Class_i = {Class_1, if P(X|Class_1) P(Class_1) > P(X|Class_2) P(Class_2),
+Class_i = {Class_1, if P(X|Class_1) P(Class_1) > P(X|Class_2) P(Class_2)
            Class_2, Otherwise}
 ```
 
